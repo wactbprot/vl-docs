@@ -1,4 +1,4 @@
-(ns vl-docs.cus-in
+(ns vl-docs.cus-post
   (:require [vl-docs.config :as c]
             [vl-docs.utils :as u]
             [clojure.string :as string]))
@@ -85,7 +85,7 @@
 ;;........................................................................
 ;; data from page doc from db
 ;;........................................................................
-(defn in [{p :path v :value t :type cmd :cmd} doc]
+(defn receive [{p :path v :value t :type cmd :cmd} doc]
   (let [p (u/path p)]
     (cond
       (seq cmd) (command doc p cmd)

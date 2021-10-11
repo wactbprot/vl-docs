@@ -1,7 +1,7 @@
 (ns build
   (:require [clojure.tools.build.api :as b]))
 
-(def lib 'com.github.wactbprot/doc)
+(def lib 'com.github.wactbprot/vl-docs)
 (def version (format "0.2.%s" (b/git-count-revs nil)))
 (def class-dir "target/classes")
 (def basis (b/create-basis {:project "deps.edn" :aliases [:dev]}))
@@ -15,20 +15,15 @@
                 :lib lib
                 :version version
                 :basis basis
-                :src-dirs ["bases/srv/src"]})
-  (b/copy-dir {:src-dirs ["bases/srv/src"
-                          "bases/srv/resources"
-                          "components/config/src"
-                          "components/content/src"
-                          "components/db/src"
-                          "components/page/src"]
+                :src-dirs ["src"]})
+  (b/copy-dir {:src-dirs ["src" "resources"]
                :target-dir class-dir}))
 
 (defn uber [_]
   (b/compile-clj {:basis basis
-                  :src-dirs ["bases/src"]
+                  :src-dirs ["src"]
                   :class-dir class-dir})
   (b/uber {:class-dir class-dir
-           :main 'wactbprot.doc.srv.core
+           :main 'vl-docs.server
            :uber-file uber-file
            :basis basis}))

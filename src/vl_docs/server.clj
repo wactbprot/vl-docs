@@ -5,20 +5,19 @@
             [compojure.core :refer :all]
             [compojure.handler :as handler]
             [org.httpkit.server :refer [run-server]]
-            [ring.middleware.json :as middleware]
-            
+            [ring.middleware.json :as middleware]            
             [vl-docs.config :as c]
             [vl-docs.db :as db]
-            [vl-docs.cus-out :as cus-out]
-            [vl-docs.cus-in :as cus-in]
+            [vl-docs.cus-get :as cus-get]
+            [vl-docs.cus-post :as cus-post]
             [vl-docs.page :as page])
   (:gen-class))
 
 (defonce server (atom nil))
 
 (defroutes app-routes
-  (GET "/customer/:id" [:as req] (io/cus-out (db/get-doc c/conf (get-in req [:route-params :id]))))
-  (POST "/customer/:id" [:as req] (db/put-doc c/conf (io/cus-in  (:body req) (db/get-doc c/conf (get-in req [:route-params :id])))))
+  (GET "/customer/:id" [:as req] (cus-get/emit (db/get-doc c/conf (get-in req [:route-params :id]))))
+  (POST "/customer/:id" [:as req] (db/put-doc c/conf (cus-post/receive (:body req) (db/get-doc c/conf (get-in req [:route-params :id])))))
   (route/resources "/")
   (route/not-found (page/not-found)))
 

@@ -14,21 +14,16 @@
 ;;........................................................................
 ;; nav
 ;;........................................................................
+
 (defn nav []
-  [:div.uk-section-primary.uk-preserve-color
-
-    [:div {:uk-sticky "animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-light; top: 200"}
-
   [:nav.uk-navbar-container
    {:uk-navbar ""}
    [:div.uk-navbar-center
     [:ul.uk-navbar-nav
      [:li [:a {:target "_blank"
-               :href "https://gitlab1.ptb.de/vaclab/repliclj"} "gitlab"]]
-     [:li [:a {:target "_blank"
-               :href "http://a75438:5601/app/discover#/view/6fde0090-06ff-11ec-a0ed-9fa5b8b37aed"} "elasticsearch"]]
+               :href "https://gitlab1.ptb.de/vaclab/vl-docs"} "gitlab"]]
      [:li [:a { :target "_blank"
-               :href "https://docs.couchdb.org/en/main/replication/index.html"} "repli docu"]]]]]]])
+               :href "http://a75438:5984/_utils/#database/vl_db/_all_docs"} "vl_db"]]]]])
 
 ;;........................................................................
 ;; body
@@ -46,7 +41,7 @@
 ;; head
 ;;........................................................................
 (defn head []
-  [:head [:title "doc"]
+  [:head [:title "vl-docs"]
    [:meta {:charset "utf-8"}]
    [:meta {:name "viewport" :content "width=device-width, initial-scale=1"}]
    (hp/include-css "/css/uikit.css")])

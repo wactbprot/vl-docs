@@ -19,13 +19,15 @@
 
 (defn acc-frame [] [:ul {:uk-accordion ""}]) ;; collapsible: false
 
-(defn acc-sheet [title content {o :open}]
-  [:li (when o {:class "uk-open"})
-   [:a.uk-accordion-title.uk-text-muted {:href "#"} title]
-   [:div.uk-accordion-content
-    [:div.uk-card.uk-card-body.uk-background-muted content]]])
+(defn acc-sheet 
+  ([title content] (acc-sheet title content {:open false}))
+  ([title content {o :open}]
+   [:li (when o {:class "uk-open"})
+    [:a.uk-accordion-title.uk-text-muted {:href "#"} title]
+    [:div.uk-accordion-content
+     [:div.uk-card.uk-card-body.uk-background-muted content]]]))
 
-(defn button [data text] [:button.uk-button.uk-button-primary.uk-button-small.doc-button  (merge {} data) text])
+(defn button [data text] [:button.uk-button.uk-button-default.doc-button  (merge {} data) text])
 
 (defn grid [] [:div {:class "uk-grid-small uk-child-width-expand@s" :uk-grid ""}])
 
