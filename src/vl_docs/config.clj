@@ -21,5 +21,5 @@
          :db-base-url (db-base-url defaults)
          :db-url (db-url defaults)
          :db-opt {:headers {"Content-Type" "application/json"}
-                  :timeout 1000
+                  :timeout 2000
                   :basic-auth [(:db-usr defaults) (:db-pwd defaults)]}))

@@ -10,6 +10,8 @@
     [:tr
      [:td [:a.uk-link-toggle {:href (str "./" id)} (get-in m [:value :Customer :Sign])]]
      [:td [:a.uk-link-toggle {:href (str "./" id)} (get-in m [:value :Customer :Name])]]
+     [:td [:a.uk-link-toggle {:href (str "./" id)} (get-in m [:value :Customer :Contact :Name])]]
+     [:td [:a.uk-link-toggle {:href (str "./" id)} (get-in m [:value :Customer :Comment])]]
      [:td [:a.uk-link-toggle {:href (str "http://a73434:5984/_utils/#database/vl_db/" id)} [:span {:uk-icon "database"}]]]]))
 
 (defn table [data]
@@ -18,6 +20,8 @@
     [:tr
      [:th.uk-table-shrink "Kürzel"]
      [:th.uk-table-expand "Name"]
+     [:th.uk-table-expand "Kontakt"]
+     [:th.uk-table-expand "Kommentar"]
      [:th ""]]]
    (into [:tbody] (map table-row data))])
 
