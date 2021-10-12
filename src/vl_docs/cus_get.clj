@@ -95,7 +95,7 @@
        (u/info data)
        (compo/form-text-input {:width :full}))]))
 
-(defn address-name [data base layout main-name] 
+(defn address-name [data base layout main-name]
   [(-> {:label "Adresszeile 1"
         :data-path  (str base main-name)}
        (u/info data)
@@ -105,7 +105,7 @@
         :data-path (str base "AddName")}
        (u/info data)
        (compo/form-text-input {:width :half}))
-   
+
    (-> {:label "Adresszeile 3"
         :data-path (str base "AddAddName")}
        (u/info data)
@@ -137,7 +137,7 @@
         :data-path (str base "Land")}
        (u/info data)
        (compo/form-text-input {:width :one-quarter}))
-   
+
    (category data (str base "") {:width :one-quarter})])
 
 (defn main-contact [data] (contact data "Customer.Contact."))
@@ -150,7 +150,7 @@
   (let [base "Customer."]
     (into (address-name data base {:width :full} "Name")
           (address-tail data (str base "Address.")))))
-  
+
 (defn sub-address [data base]
   (into (address-name data base {:width :full} "CustomerName")
             (address-tail data base)))
@@ -194,11 +194,9 @@
                              [(compo/form-heading "Alternative 1")
                               (cmd-replace-contact "Customer.AltContact.0.")
                               (into (compo/form) (contact data "Customer.AltContact.0."))
-                              (compo/form-heading "Alternative 1")
+                              (compo/form-heading "Alternative 2")
                               (cmd-replace-contact "Customer.AltContact.1.")
                               (into (compo/form) (contact data "Customer.AltContact.1."))
-                              (compo/form-heading "Alternative 1")
+                              (compo/form-heading "Alternative 3")
                               (cmd-replace-contact "Customer.AltContact.2.")
                               (into (compo/form) (contact data "Customer.AltContact.2.")) ]))])))
-
-
