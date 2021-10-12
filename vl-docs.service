@@ -1,0 +1,14 @@
+[Unit]
+Description=Provides websites for easy interaction with vaclab documents
+After=syslog.target network.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/environment
+WorkingDirectory=/usr/local/share/vl-docs
+ExecStart=/usr/bin/java -jar vl-docs.jar nogui
+Restart=on-failure
+SuccessExitStatus=143
+
+[Install]
+WantedBy=default.target

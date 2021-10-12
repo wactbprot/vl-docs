@@ -4,7 +4,7 @@
                :db-prot "http"
                :db-host (or (System/getenv "DB_HOST") "localhost")
                :db-port 5984
-               :db-name "doc_test"
+               :db-name "vl_db"
                :db-design "share"
                :db-customer-view "Customer"
                :db-usr (System/getenv "CAL_USR")
@@ -16,7 +16,7 @@
 (defn db-url [{db-name :db-name :as c}]
   (str (db-base-url c) "/" db-name))
 
-(def conf 
+(def conf
   (assoc defaults
          :db-base-url (db-base-url defaults)
          :db-url (db-url defaults)
