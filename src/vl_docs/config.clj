@@ -5,6 +5,8 @@
                :db-host (or (System/getenv "DB_HOST") "localhost")
                :db-port 5984
                :db-name "doc_test"
+               :db-design "share"
+               :db-customer-view "Customer"
                :db-usr (System/getenv "CAL_USR")
                :db-pwd (System/getenv "CAL_PWD")})
 

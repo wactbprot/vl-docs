@@ -2,6 +2,8 @@
   (:require [clojure.string :as string]))
 
 
+(defn req->id [req] (get-in req [:route-params :id]))
+
 (defn str->path-element [s]
   (if (re-matches #"[0-9]*" s) (Integer/parseInt s) (keyword s))) 
 
