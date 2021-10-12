@@ -22,7 +22,9 @@
      [:li [:a {:target "_blank"
                :href "https://gitlab1.ptb.de/vaclab/vl-docs"} "gitlab"]]
      [:li [:a { :target "_blank"
-               :href "http://a75438:5984/_utils/#database/vl_db/_all_docs"} "vl_db"]]]]])
+               :href "http://a75438:5984/_utils/#database/vl_db/_all_docs"} "Datenbank"]]
+     [:li [:a { :target "_blank"
+               :href "/customer/"} "Kunden"]]]]])
 
 ;;........................................................................
 ;; body

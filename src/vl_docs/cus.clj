@@ -6,22 +6,24 @@
             [clojure.string :as string]))
 
 (defn table-row [m]
-  [:tr
-   [:td (:id m)]
-   [:td (get-in m [:value :Customer :Sign])]
-   [:td (get-in m [:value :Customer :Name])]])
+  (let [id (:id m)]
+    [:tr
+     [:td [:a.uk-link-toggle {:href (str "./" id)} (get-in m [:value :Customer :Sign])]]
+     [:td [:a.uk-link-toggle {:href (str "./" id)} (get-in m [:value :Customer :Name])]]
+     [:td [:a.uk-link-toggle {:href (str "http://a73434:5984/_utils/#database/vl_db/" id)} [:span {:uk-icon "database"}]]]]))
 
 (defn table [data]
-  [:table.uk-table.uk-table-striped
-    [:thead
-        [:tr
-         [:th "id"]
-         [:th "sign"]
-         [:th "name"]]]
-    (into [:tbody] (map table-row data))])
+  [:table.uk-table.uk-table-striped.uk-table-hover
+   [:thead
+    [:tr
+     [:th.uk-table-shrink "Kürzel"]
+     [:th.uk-table-expand "Name"]
+     [:th ""]]]
+   (into [:tbody] (map table-row data))])
 
 
 (defn menu [data]
   (page/index
-  
-         (table data)))
+   (into (compo/article)
+         [(compo/form-heading "Kundendokumente")
+          (table data)])))

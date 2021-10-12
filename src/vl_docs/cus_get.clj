@@ -165,7 +165,7 @@
                               (compo/form-heading "Adresse")
                               (into (compo/form) (main-address data))
                               (compo/form-heading "Kontakt")
-                              (into (compo/form) (main-contact data))]))
+                              (into (compo/form) (main-contact data))]){:open true})
           (compo/acc-sheet "Versand"
                        (into (compo/article)
                              [(compo/form-heading "Versandadresse")
