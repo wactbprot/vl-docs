@@ -93,7 +93,12 @@
    (-> {:label "Kommentar"
         :data-path  (str base "Comment")}
        (u/info data)
-       (compo/form-text-input {:width :full}))]))
+       (compo/form-text-input {:width :half}))
+
+   (-> {:label "EAkte Addr."
+        :data-path  (str base "EAkteObjectAddress")}
+       (u/info data)
+       (compo/form-text-input {:width :half}))]))
 
 (defn address-name [data base layout main-name]
   [(-> {:label "Adresszeile 1"

@@ -24,6 +24,8 @@
      [:li [:a { :target "_blank"
                :href "http://a75438:5984/_utils/#database/vl_db/_all_docs"} "Datenbank"]]
      [:li [:a { :target "_blank"
+               :href "http://localhost:8882/pla"} "vle"]]
+     [:li [:a { :target "_blank"
                :href "/customer/"} "Kunden"]]]]])
 
 ;;........................................................................
