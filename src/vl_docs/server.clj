@@ -18,7 +18,7 @@
 (defonce server (atom nil))
 
 (defroutes app-routes
-  (Get "/customer/" [:as req] (cus/menu (db/get-view (assoc c/conf :db-view (:db-customer-view c/conf)))))
+  (GET "/customer/" [:as req] (cus/menu (db/get-view (assoc c/conf :db-view (:db-customer-view c/conf)))))
   
   (GET "/customer/:id" [:as req] (->> req
                                       (u/req->id)

@@ -25,6 +25,8 @@ In order to generate an stand alone uberjar **vl-docs** uses [tools.build](https
 clj -T:build clean
 clj -T:build prep
 clj -T:build uber
+# or
+clj -T:build all
 ```
 
 Start the server by invoking:

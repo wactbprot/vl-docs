@@ -2,10 +2,10 @@
   (:require [clojure.tools.build.api :as b]))
 
 (def lib 'com.github.wactbprot/vl-docs)
-(def version (format "0.2.%s" (b/git-count-revs nil)))
+(def version (format "0.3.%s" (b/git-count-revs nil)))
 (def class-dir "target/classes")
 (def basis (b/create-basis {:project "deps.edn" :aliases [:dev]}))
-(def uber-file (format "target/%s-%s-standalone.jar" (name lib) version))
+(def uber-file (format "target/%s-%s.jar" (name lib) version))
 
 (defn clean [_]
   (b/delete {:path "target"}))
@@ -27,3 +27,8 @@
            :main 'vl-docs.server
            :uber-file uber-file
            :basis basis}))
+
+(defn all [_]
+  (clean nil)
+  (prep nil)
+  (uber nil))
