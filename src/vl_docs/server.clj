@@ -18,7 +18,10 @@
 (defonce server (atom nil))
 
 (defroutes app-routes
-  (GET "/customer/" [:as req] (cus/menu (db/get-view (assoc c/conf :db-view (:db-customer-view c/conf)))))
+  (GET "/customer/" [:as req] (-> c/conf
+                                  (assoc :db-view (:db-customer-view c/conf))
+                                  db/get-view
+                                  cus/menu))
   
   (GET "/customer/:id" [:as req] (->> req
                                       (u/req->id)
@@ -27,7 +30,7 @@
   
   (POST "/customer/:id" [:as req] (->> req
                                        (u/req->id)
-                                       (db/get-doc c/conf )
+                                       (db/get-doc c/conf)
                                        (cus-post/receive (:body req))
                                        (db/put-doc c/conf)))
   
@@ -39,11 +42,13 @@
       (middleware/wrap-json-body {:keywords? true})
       (middleware/wrap-json-response)))
 
-(defn stop [c]
+(defn stop []
   (when @server (@server :timeout 100)
         (reset! server nil)))
 
-(defn start [{srv :server}] (reset! server (run-server #'app srv)))
+(defn start
+  ([] (start c/conf))
+  ([{srv :server}] (reset! server (run-server #'app srv))))
 
 (defn -main [& args] (start c/conf))
 

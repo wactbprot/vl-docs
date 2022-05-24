@@ -1,6 +1,6 @@
 (ns vl-docs.db
   ^{:author "Thomas Bock <wactbprot@gmail.com>"
-    :doc "Basic database interop. Plain HTTP powerd by httpkit."}
+    :doc "Basic database interop. Plain HTTP powerd by httpkit --> replace by libcdb."}
   (:require [cheshire.core :as che]
             [clojure.string :as string]
             [vl-docs.config :as c]

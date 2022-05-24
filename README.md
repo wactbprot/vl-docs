@@ -29,10 +29,16 @@ clj -T:build uber
 clj -T:build all
 ```
 
+upload:
+
+```shell
+scp -r target/vl-docs-x.y.z.jar bock04@a75438://var/www/html/vl-docs/
+```
+
 Start the server by invoking:
 
 ```shell
-java -jar target/vl-docs-x.y.z-standalone.jar
+java -jar target/vl-docs-x.y.z.jar
 ```
 
 ## systemd

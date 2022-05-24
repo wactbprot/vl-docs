@@ -19,14 +19,10 @@
    {:uk-navbar ""}
    [:div.uk-navbar-center
     [:ul.uk-navbar-nav
-     [:li [:a {:target "_blank"
-               :href "https://gitlab1.ptb.de/vaclab/vl-docs"} "gitlab"]]
-     [:li [:a { :target "_blank"
-               :href "http://a75438:5984/_utils/#database/vl_db/_all_docs"} "Datenbank"]]
-     [:li [:a { :target "_blank"
-               :href "http://localhost:8882/pla"} "vle"]]
-     [:li [:a { :target "_blank"
-               :href "/customer/"} "Kunden"]]]]])
+     [:li [:a {:href "https://gitlab1.ptb.de/vaclab/vl-docs"} "gitlab"]]
+     [:li [:a {:href "http://a75438:5984/_utils/#database/vl_db/_all_docs"} "Datenbank"]]
+     [:li [:a {:href "http://localhost:8882/pla"} "vle"]]
+     [:li [:a {:href "/customer/"} "Kundenübersicht"]]]]])
 
 ;;........................................................................
 ;; body

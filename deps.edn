@@ -4,7 +4,7 @@
 
             :dev {:extra-paths ["src" "resources"]
                   
-                  :extra-deps {org.clojure/clojure {:mvn/version "1.11.1"}
+                  :extra-deps {org.clojure/clojure {:mvn/version "1.11.0"}
                                org.clojure/tools.deps.alpha {:mvn/version "0.12.1003"}
                                com.ashafa/clutch {:mvn/version "0.4.0"}
                                cheshire/cheshire {:mvn/version "5.10.0"}
